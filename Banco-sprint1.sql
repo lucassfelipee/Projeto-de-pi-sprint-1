@@ -1,8 +1,6 @@
 
-create database sprint2;
-use sprint2;
-
-drop database sprint2;
+create database sprint1;
+use sprint1;
 
 create table cadastro (
 	IDUsuario int primary key auto_increment,
