@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+
+<body>
+    nome: <input type="text" id="input_nome"><br>
+    insira qual sua renda liquida por colheita: <input type="number" id="input_colheita">
+
+    <button onclick="calculo()">Calcular</button>
+
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+<script>
+    function calculo() {
+        var nome = input_nome.value;
+        var liquida = Number(input_colheita.value);
+        perda = (liquida * 0.25) / 0.75;
+        bruto = liquida + perda;
+        
+
+        div_mensagem.innerHTML = `Olá ${nome}, sua renda líquida por colheita é de ${liquida}.<br>
+         Você tem a perda média de R$${perda} por colheita.<br>
+           Tem uma renda bruta de R$${bruto}.<br>
+         Com o nosso sistema você poderia reduzir a sua perda podendo chegar a lucrar um teto de R$${bruto},
+         Tendo em vista que com o nosso sistema implantado você reduziria em um valor significativo a sua perda
+         por condições climáticas ou bactericidas.`;
+
+
+
+    }
+
+
+
+</script>
