@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: linear-gradient(#5a3225, #7e5f3d);
+
+        }
+
+        .painel {
+            width: 500px;
+            height: 700px;
+            background-color: white;
+            margin: auto;
+            border-radius: 20px;
+            text-align: center;
+            padding-top: 50px;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="painel">
+        <h1 style="font-family: 'Times New Roman', Times, serif ; text-decoration: underline; "> Simulador Financeiro
+        </h1>
+
+        👤 Nome: <br> <input type="text" id="input_nome" style="background-color: beige;"><br>
+
+        💲 Qual é o seu lucro liquido por colheita? <br> <input type="number" id="input_valor"
+            style="background-color: beige;"><br><br>
+
+        <button onclick="calcular()" style="background-color: beige;"> 💸 Descobrir gastos </button><br>
+
+        <img src="https://static.vecteezy.com/ti/vetor-gratis/p3/6839478-cafe-graos-cafe-grao-icone-logo-sinal-icone-gratis-vetor.jpg"
+            alt="" width=200px>
+        <div id="div_mensagem"
+            style="font-family: 'Times New Roman', Times, serif; border: 1px solid black; border-radius: 12px; margin: 0 2rem;  justify-content: center; display: flex; align-items: center; text-align: center; background-color: beige;">
+        </div>
+
+    </div>
+    <span style="border-radius: 100px;"></span>
+</body>
+
+</html>
+<script>
+    function calcular() {
+        var nome = input_nome.value;
+        var lucro = Number(input_valor.value);
+        var perda = (lucro * 0.25) / 0.75;
+        var lucroEstimado = perda + lucro;
+
+        if (lucro <= 0) {
+            alert("Lucro liquido invalido, inserir novamente");
+        } else {
+            div_mensagem.innerHTML = `<p>Olá ${nome},você tem um lucro líquido de <span style="color: blue"> R$${lucro}.</span> <br> Segundo a globorural.globo.com, uma plantação tem a perda média de <span style="color: red">25%</span> 
+                no valor bruto do seu plantio, sendo assim,
+você tem <span style="color: red">R$${perda}</span> de perda na sua colheita. Com o nosso sistema, você poderia diminuir sua perda significativamente, pois não teria interferências climáticas de
+fora da estufa e reduziria os problemas causados por fungos e bactérias.</p><br>`;
+        }
+
+    }
+</script>
