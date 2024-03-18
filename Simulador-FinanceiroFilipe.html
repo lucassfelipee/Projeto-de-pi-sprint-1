@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro AGTech</title>
+    <style>
+        body{
+                height: 100vh;
+                margin: 0px;
+                padding: 0px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+               
+            }
+        .box {
+                
+                height: 55%;
+                width: 30%;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                flex-direction: column;
+                background-color: white;
+             }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>Simulador Financeiro AGTech</h2>
+        Insira o seu nome <br>
+        <input type="text" id="nome_input">
+        Insira o seu lucro liquido mensal 
+        <input type="text" id="liquido_input"> <br>
+        <button onclick="calcula()">Calcular</button>
+        <div id="div_mensagem"></div>
+    </div>
+</body>
+</html>
+
+<script>
+ function calcula() {
+    var nome    = nome_input.value;
+    var liquido = Number(liquido_input.value);
+    var prejuizo = (liquido * 0.25) / 0.75;
+    var bruto = liquido + prejuizo;
+    var aumento = prejuizo;
+    var mensagem = ` 
+    Olá ${nome}, vocë tem uma renda líquida por colheita de R$${liquido}. <br>
+    O seu prejuízo médio por colheita é de R$${prejuizo}. <br>
+    A Sua renda bruta é de R$${bruto} <br>
+    Com a implantação do nosso sistema, seria possível reduzir o seu prejuízo
+    tornando a sua renda bruta de R$${bruto} bem próxima do seu lucro líquido.
+    `
+    div_mensagem.innerHTML = mensagem
+
+
+ }
+
+</script>
