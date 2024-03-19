@@ -64,15 +64,6 @@
         background-color: #38b83c;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
-    .btn-calc:hover{
-        transition: 0.2s;
-        background-color: #36aa3a;
-    }
-    .btn-calc:active{
-        transition: 0.2s;
-        transform: scale(0.97);    
-        background-color: #36aa3a;
-    }
     .box-message{
         height: 25%;
         width: 90%;
@@ -89,7 +80,7 @@
         <div class="box-input">
             <input type="text" id="inp_produzido" placeholder="Quantidade de quilos de café produzido no mês">
             <input type="text" id="inp_vendido" placeholder="Quantidade de quilos de café vendido no mês">
-            <input type="text" id="inp_valor" placeholder="Valor por kg">
+            <input type="text" id="inp_valor" placeholder="Valor por quilo">
             <button onclick="calcPerda()" class="btn-calc">Calcular perda</button>
         </div>
         <div id="div_mensagem" class="box-message"></div>
@@ -105,10 +96,10 @@
         var vendido = Number(inp_vendido.value);
         var valorkg = Number(inp_valor.value);
         
-        var porcentagemPerda = 100 - (vendido * 100 / produzido);
-        var qtdPerda = porcentagemPerda * produzido / 100;  
+        var porcentagemPerda = 100 - (vendido * 100 / produzido); // regra de tres para descobrir a porcentagem de perda
+        var qtdPerda = porcentagemPerda * produzido / 100;  // regra de tres para ver a quantia perdida
         var vlPerdido = qtdPerda * valorkg;
 
-        div_mensagem.innerHTML = `Você produz mensalmente ${produzido} quilos de café e vende ${vendido}, a quantia perdida é ${qtdPerda.toFixed()} kilos representando ${porcentagemPerda.toFixed(2)}% da sua produção e gera um prejuízo de R$${vlPerdido.toFixed(2)}`;
+        div_mensagem.innerHTML = `Você produz mensalmente ${produzido} quilos de café e vende ${vendido}, a quantia perdida é ${qtdPerda} quilos representando ${porcentagemPerda}% da sua produção e gera um prejuízo de R$${vlPerdido}`;
     }
 </script>
