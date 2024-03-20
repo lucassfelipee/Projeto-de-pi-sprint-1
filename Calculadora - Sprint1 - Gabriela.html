@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<style>
+    body { background-color: rgba(137, 43, 226, 0.425);}
+</style>
+    <h1>Simule a quantidade de água que você desperdiça mensalmente na sua plantação!</h1>
+    <b>Qual o seu nome? </b><input type="text" id="input_nome"> <br>
+    <b>Quantos cafeeiros você tem? </b> <input type="text" id="input_cafe"> <br>
+    <b>Quantos litros de água você gasta mensalmente? </b> <input type="text" id="input_agua"> <br>
+    <button onclick="Calcular()"><b>Calcular</b></button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function Calcular() {
+       var nome = input_nome.value;
+       var Agua = Number(input_agua.value);
+       var cafe = Number (input_cafe.value);
+       var Divisão = (Agua/30) / cafe;
+       var Total = (cafe * 5) * 30;
+       var Desperdicio = Agua - Total;
+    
+       if (Desperdicio == 0) {
+        div_mensagem.innerHTML = `Olá ${nome}, você usa mensalmente <b>${Agua}</b> litros
+        de água tendo <b>${cafe}</b> cafeeiros e não esta desperdiçando água. <p>`
+        } else if (Desperdicio <0) {
+        div_mensagem.innerHTML = `Olá ${nome}, você usa mensalmente <b>${Agua}</b> litros
+        de água tendo <b>${cafe}</b> cafeeiros. <p>
+        Cada cafeeiro precisa de <b>5 litros de água por dia</b> e os seus 
+        cafeeiros não estão recebendo a quantidade necessária.<p>`
+        } else if (Desperdicio) {
+       div_mensagem.innerHTML = `Olá ${nome}, você usa mensalmente <b>${Agua}</b> litros
+        de água  tendo <b>${cafe}</b> cafeeiros. <p>
+        Cada cafeeiro precisa de <b>5 litros de água por dia</b>,
+        a quantidade ideal para a sua plantação deveria ser de <b>${Total}</b> litros 
+        de água mensal, <p> sendo assim você esta desperdiçando um total de <b>${Desperdicio}</b> 
+        litros de água.`}
+    }
+   
+   </script>
