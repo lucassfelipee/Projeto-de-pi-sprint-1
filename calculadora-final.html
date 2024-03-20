@@ -12,8 +12,8 @@
         }
 
         .painel {
-            width: 500px;
-            height: 700px;
+            width: 600px;
+            height: 900px;
             background-color: white;
             margin: auto;
             border-radius: 20px;
@@ -39,7 +39,7 @@
         <button onclick="calcular()" style="background-color: beige;"> 💸 Descobrir gastos </button><br>
 
         <img src="https://static.vecteezy.com/ti/vetor-gratis/p3/6839478-cafe-graos-cafe-grao-icone-logo-sinal-icone-gratis-vetor.jpg"
-            alt="" width=200px>
+            alt="" width=150px>
         <div id="div_mensagem"
             style="font-family: 'Times New Roman', Times, serif; border: 1px solid black; border-radius: 12px; margin: 0 2rem;  justify-content: center; display: flex; align-items: center; text-align: center; background-color: beige;">
         </div>
@@ -54,15 +54,17 @@
         var nome = input_nome.value;
         var lucro = Number(input_valor.value);
         var perda = (lucro * 0.25) / 0.75;
-        var lucroEstimado = perda + lucro;
+        var perda_longoPrazo = perda * 10;
+        var menor_perda = (lucro * 0.10) / 0.90;
+        var perdaFinal = perda - menor_perda;
 
         if (lucro <= 0) {
             alert("Lucro liquido invalido, inserir novamente");
         } else {
-            div_mensagem.innerHTML = `<p>Olá ${nome},você tem um lucro líquido de <span style="color: blue"> R$${lucro}.</span> <br> Segundo a globorural.globo.com, uma plantação tem a perda média de <span style="color: red">25%</span> 
-                no valor bruto do seu plantio, sendo assim,
-você tem <span style="color: red">R$${perda}</span> de perda na sua colheita. Com o nosso sistema, você poderia diminuir sua perda significativamente, pois não teria interferências climáticas de
-fora da estufa e reduziria os problemas causados por fungos e bactérias.</p><br>`;
+            div_mensagem.innerHTML = `<span style="text-aling:start"><p>Olá ${nome},você tem um lucro líquido de <span style="color: blue"> R$${lucro}.</span> <br> Segundo a globorural.globo.com, uma plantação tem a perda média de <span style="color: red">25%</span> 
+            no valor bruto do seu plantio, sendo assim, você tem <span style="color: red">R$${perda}</span> de perda na sua colheita <span style="color: green">em cima do valor bruto </span>, e estima-se que em 10 colheitas você tanha a perda de <span style="color: red"> R$${perda_longoPrazo}</span></span>.<br>
+                
+           <br><span text-aling:end>Fazemos uma suposição de que a sua perda com o nosso sistema vai ser em torno de <span style="color: blue"> 10% </span>, que ficaria um valor de aproximadamente <span style="color: blue"> R$ ${menor_perda}</span> de perda por colheita, fazendo o nosso sistema economizar <span style="color: green"> R$ ${perdaFinal} </span>no seu bolso. </span>`;
         }
 
     }
